@@ -1,0 +1,142 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\nghia\\source\\repos\\TBPMusic\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C553AC-2F15-4D87-B4F6-57FEF019221A}|OnlineShop\\TBPMusic.csproj|c:\\users\\nghia\\source\\repos\\tbpmusic\\onlineshop\\areas\\admin\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A5C553AC-2F15-4D87-B4F6-57FEF019221A}|OnlineShop\\TBPMusic.csproj|solutionrelative:onlineshop\\areas\\admin\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C553AC-2F15-4D87-B4F6-57FEF019221A}|OnlineShop\\TBPMusic.csproj|c:\\users\\nghia\\source\\repos\\tbpmusic\\onlineshop\\areas\\admin\\views\\register\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A5C553AC-2F15-4D87-B4F6-57FEF019221A}|OnlineShop\\TBPMusic.csproj|solutionrelative:onlineshop\\areas\\admin\\views\\register\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C553AC-2F15-4D87-B4F6-57FEF019221A}|OnlineShop\\TBPMusic.csproj|c:\\users\\nghia\\source\\repos\\tbpmusic\\onlineshop\\areas\\admin\\views\\forgot_password\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A5C553AC-2F15-4D87-B4F6-57FEF019221A}|OnlineShop\\TBPMusic.csproj|solutionrelative:onlineshop\\areas\\admin\\views\\forgot_password\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C553AC-2F15-4D87-B4F6-57FEF019221A}|OnlineShop\\TBPMusic.csproj|c:\\users\\nghia\\source\\repos\\tbpmusic\\onlineshop\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A5C553AC-2F15-4D87-B4F6-57FEF019221A}|OnlineShop\\TBPMusic.csproj|solutionrelative:onlineshop\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C553AC-2F15-4D87-B4F6-57FEF019221A}|OnlineShop\\TBPMusic.csproj|C:\\Users\\nghia\\source\\repos\\TBPMusic\\onlineshop\\areas\\admin\\views\\musicmanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A5C553AC-2F15-4D87-B4F6-57FEF019221A}|OnlineShop\\TBPMusic.csproj|solutionrelative:onlineshop\\areas\\admin\\views\\musicmanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C553AC-2F15-4D87-B4F6-57FEF019221A}|OnlineShop\\TBPMusic.csproj|c:\\users\\nghia\\source\\repos\\tbpmusic\\onlineshop\\areas\\admin\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A5C553AC-2F15-4D87-B4F6-57FEF019221A}|OnlineShop\\TBPMusic.csproj|solutionrelative:onlineshop\\areas\\admin\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C553AC-2F15-4D87-B4F6-57FEF019221A}|OnlineShop\\TBPMusic.csproj|C:\\Users\\nghia\\source\\repos\\TBPMusic\\onlineshop\\areas\\admin\\views\\usermanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A5C553AC-2F15-4D87-B4F6-57FEF019221A}|OnlineShop\\TBPMusic.csproj|solutionrelative:onlineshop\\areas\\admin\\views\\usermanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 210,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\nghia\\source\\repos\\TBPMusic\\OnlineShop\\Areas\\Admin\\Views\\Register\\Index.cshtml",
+              "RelativeDocumentMoniker": "OnlineShop\\Areas\\Admin\\Views\\Register\\Index.cshtml",
+              "ToolTip": "C:\\Users\\nghia\\source\\repos\\TBPMusic\\OnlineShop\\Areas\\Admin\\Views\\Register\\Index.cshtml",
+              "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Views\\Register\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-30T08:33:39.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\nghia\\source\\repos\\TBPMusic\\OnlineShop\\Areas\\Admin\\Views\\Forgot_password\\Index.cshtml",
+              "RelativeDocumentMoniker": "OnlineShop\\Areas\\Admin\\Views\\Forgot_password\\Index.cshtml",
+              "ToolTip": "C:\\Users\\nghia\\source\\repos\\TBPMusic\\OnlineShop\\Areas\\Admin\\Views\\Forgot_password\\Index.cshtml",
+              "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Views\\Forgot_password\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-30T08:33:27.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\nghia\\source\\repos\\TBPMusic\\OnlineShop\\Areas\\Admin\\Views\\Login\\Index.cshtml",
+              "RelativeDocumentMoniker": "OnlineShop\\Areas\\Admin\\Views\\Login\\Index.cshtml",
+              "ToolTip": "C:\\Users\\nghia\\source\\repos\\TBPMusic\\OnlineShop\\Areas\\Admin\\Views\\Login\\Index.cshtml",
+              "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Views\\Login\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-30T08:33:07.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\nghia\\source\\repos\\TBPMusic\\OnlineShop\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "OnlineShop\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\nghia\\source\\repos\\TBPMusic\\OnlineShop\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-30T08:32:40.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\nghia\\source\\repos\\TBPMusic\\OnlineShop\\Areas\\Admin\\Views\\Account\\Index.cshtml",
+              "RelativeDocumentMoniker": "OnlineShop\\Areas\\Admin\\Views\\Account\\Index.cshtml",
+              "ToolTip": "C:\\Users\\nghia\\source\\repos\\TBPMusic\\OnlineShop\\Areas\\Admin\\Views\\Account\\Index.cshtml",
+              "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Views\\Account\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-29T14:24:42.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\nghia\\source\\repos\\TBPMusic\\OnlineShop\\Areas\\Admin\\Views\\MusicManagement\\Index.cshtml",
+              "RelativeDocumentMoniker": "OnlineShop\\Areas\\Admin\\Views\\MusicManagement\\Index.cshtml",
+              "ToolTip": "C:\\Users\\nghia\\source\\repos\\TBPMusic\\OnlineShop\\Areas\\Admin\\Views\\MusicManagement\\Index.cshtml",
+              "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Views\\MusicManagement\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-29T14:22:04.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\nghia\\source\\repos\\TBPMusic\\OnlineShop\\Areas\\Admin\\Views\\UserManagement\\Index.cshtml",
+              "RelativeDocumentMoniker": "OnlineShop\\Areas\\Admin\\Views\\UserManagement\\Index.cshtml",
+              "ToolTip": "C:\\Users\\nghia\\source\\repos\\TBPMusic\\OnlineShop\\Areas\\Admin\\Views\\UserManagement\\Index.cshtml",
+              "RelativeToolTip": "OnlineShop\\Areas\\Admin\\Views\\UserManagement\\Index.cshtml",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAQwGcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-29T09:24:03.248Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

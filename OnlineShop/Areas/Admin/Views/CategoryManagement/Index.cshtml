@@ -1,0 +1,167 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.isActive = "CategoryManagement";
+}
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Danh sách danh mục nhạc</h1>
+<p class="mb-4">
+    Danh sách này hiển thị các danh mục nhạc có sẵn. Bạn có thể sửa hoặc xóa từng danh mục trực tiếp từ bảng.
+</p>
+
+<!-- DataTables Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách danh mục nhạc</h6>
+        <div>
+            <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addCategoryModal"><i class="fas fa-plus"></i> Thêm danh mục mới</a>
+            <a href="@Url.Action("Index", "CategoryManagement")" class="btn btn-warning btn-sm ml-2"><i class="fas fa-sync-alt"></i> Làm mới</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã danh mục</th>
+                        <th>Tên danh mục</th>
+                        <th>Mô tả</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>DM001</td>
+                        <td>Ballad</td>
+                        <td>Những bài hát nhẹ nhàng, tình cảm</td>
+                        <td>
+                            <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCategoryModal"><i class="fas fa-edit"></i> Sửa</a>
+                            <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmModal"><i class="fas fa-trash-alt"></i> Xóa</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>DM002</td>
+                        <td>Hip-Hop</td>
+                        <td>Những bài hát sôi động và hiện đại</td>
+                        <td>
+                            <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCategoryModal"><i class="fas fa-edit"></i> Sửa</a>
+                            <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmModal"><i class="fas fa-trash-alt"></i> Xóa</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>DM003</td>
+                        <td>Pop</td>
+                        <td>Những bài hát phổ biến hiện nay</td>
+                        <td>
+                            <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCategoryModal"><i class="fas fa-edit"></i> Sửa</a>
+                            <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmModal"><i class="fas fa-trash-alt"></i> Xóa</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>DM004</td>
+                        <td>R&B</td>
+                        <td>Những bài hát gợi cảm và sâu lắng</td>
+                        <td>
+                            <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCategoryModal"><i class="fas fa-edit"></i> Sửa</a>
+                            <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmModal"><i class="fas fa-trash-alt"></i> Xóa</a>
+                        </td>
+                    </tr>
+                    <!-- Thêm các hàng khác ở đây -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Adding New Category -->
+<div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title" id="addCategoryModalLabel">Thêm danh mục mới</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addCategoryForm">
+                    <div class="form-group">
+                        <label for="categoryCode">Mã danh mục: <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="categoryCode" placeholder="Nhập mã danh mục">
+                    </div>
+                    <div class="form-group">
+                        <label for="categoryName">Tên danh mục: <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="categoryName" placeholder="Nhập tên danh mục">
+                    </div>
+                    <div class="form-group">
+                        <label for="categoryDescription">Mô tả:</label>
+                        <input type="text" class="form-control" id="categoryDescription" placeholder="Nhập mô tả">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer bg-success text-white">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary">Lưu danh mục</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Editing Category -->
+<div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-white">
+                <h5 class="modal-title" id="editCategoryModalLabel">Sửa danh mục</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editCategoryForm">
+                    <div class="form-group">
+                        <label for="editCategoryCode">Mã danh mục:</label>
+                        <input type="text" class="form-control" id="editCategoryCode" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="editCategoryName">Tên danh mục: <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="editCategoryName">
+                    </div>
+                    <div class="form-group">
+                        <label for="editCategoryDescription">Mô tả:</label>
+                        <input type="text" class="form-control" id="editCategoryDescription">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer bg-warning text-white">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary">Lưu thay đổi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal for Deleting Confirmation -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa danh mục này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-danger">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>

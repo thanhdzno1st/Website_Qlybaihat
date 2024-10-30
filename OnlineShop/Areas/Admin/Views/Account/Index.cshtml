@@ -1,0 +1,195 @@
+﻿@{
+    ViewBag.Title = "Quản lý tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.isActive = "Account"; // Thay đổi để phù hợp với mục đang hoạt động
+}
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Quản lý tài khoản</h1>
+<p class="mb-4">
+    Danh sách này hiển thị các tài khoản có sẵn. Bạn có thể sửa hoặc xóa từng tài khoản trực tiếp từ bảng.
+</p>
+
+<!-- DataTables Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách tài khoản</h6>
+        <div>
+            <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addAccountModal"><i class="fas fa-plus"></i> Thêm tài khoản mới</a>
+            <a href="@Url.Action("Index", "Account")" class="btn btn-warning btn-sm ml-2"><i class="fas fa-sync-alt"></i> Làm mới</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên tài khoản</th>
+                        <th>Tên đăng nhập</th>
+                        <th>Email</th>
+                        <th>Vai trò</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>thanh</td>
+                        <td>nghiadidai410</td>
+                        <td>thanh@gmail.com</td>
+                        <td>Admin</td>
+                        <td>Đang hoạt động</td>
+                        <td>
+                            <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editAccountModal"><i class="fas fa-edit"></i> Sửa</a>
+                            <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmModal"><i class="fas fa-trash-alt"></i> Xóa</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lâm Phang</td>
+                        <td>anhlamphong</td>
+                        <td>phong@gmail.com</td>
+                        <td>Admin</td>
+                        <td>Đang hoạt động</td>
+                        <td>
+                            <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editAccountModal"><i class="fas fa-edit"></i> Sửa</a>
+                            <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmModal"><i class="fas fa-trash-alt"></i> Xóa</a>
+                        </td>
+                    </tr>
+                    <!-- Thêm các hàng khác ở đây -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Adding New Account -->
+<div class="modal fade" id="addAccountModal" tabindex="-1" role="dialog" aria-labelledby="addAccountModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title" id="addAccountModalLabel">Thêm tài khoản mới</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addAccountForm">
+                    <div class="form-group">
+                        <label for="accountName">Tên tài khoản: <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="accountName" placeholder="Nhập tên tài khoản" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Tên đăng nhập: <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="username" placeholder="Nhập tên đăng nhập" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email: <span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="Email" placeholder="Nhập email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userPassword">Mật khẩu <span class="text-danger">*</span></label> <!-- Dấu * ở đây -->
+                        <input type="password" class="form-control" id="userPassword" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userConfirmPassword">Xác nhận mật khẩu <span class="text-danger">*</span></label> <!-- Dấu * ở đây -->
+                        <input type="password" class="form-control" id="userConfirmPassword" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Vai trò:</label>
+                        <select class="form-control" id="role">
+                            <option value="Admin">Admin</option>
+                            <option value="User">Nhân viên quản lý</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Trạng thái:</label>
+                        <select class="form-control" id="status">
+                            <option value="Active">Đang hoạt động</option>
+                            <option value="Inactive">Ngưng hoạt động</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer bg-success text-white">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary">Lưu tài khoản</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Editing Account -->
+<div class="modal fade" id="editAccountModal" tabindex="-1" role="dialog" aria-labelledby="editAccountModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-white">
+                <h5 class="modal-title" id="editAccountModalLabel">Sửa tài khoản</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editAccountForm">
+                    <div class="form-group">
+                        <label for="editAccountName">Tên tài khoản: <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="editAccountName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editUsername">Tên đăng nhập: <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="editUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmail">Email: <span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="editEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userPassword">Mật khẩu <span class="text-danger">*</span></label> <!-- Dấu * ở đây -->
+                        <input type="password" class="form-control" id="userPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editRole">Vai trò:</label>
+                        <select class="form-control" id="editRole">
+                            <option value="Admin">Admin</option>
+                            <option value="User">Nhân viên quản lý</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editStatus">Trạng thái:</label>
+                        <select class="form-control" id="editStatus">
+                            <option value="Active">Đang hoạt động</option>
+                            <option value="Inactive">Ngưng hoạt động</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer bg-warning text-white">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary">Lưu thay đổi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal for Deleting Confirmation -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa tài khoản này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-danger">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>

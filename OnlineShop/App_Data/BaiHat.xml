@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Songs>
+  <Song>
+    <MaBaiHat>BH001</MaBaiHat>
+    <TenBaiHat>Cơn Mưa Ngang Qua</TenBaiHat>
+    <NgheSi>Son Tùng M-TP</NgheSi>
+    <TheLoai>Pop</TheLoai>
+    <NgayPhatHanh>8/25/2012 12:00:00 AM</NgayPhatHanh>
+  </Song>
+  <Song>
+    <MaBaiHat>BH002</MaBaiHat>
+    <TenBaiHat>Người Lạ Ơi</TenBaiHat>
+    <NgheSi>Karik ft Orange</NgheSi>
+    <TheLoai>Rap</TheLoai>
+    <NgayPhatHanh>1/6/2018 12:00:00 AM</NgayPhatHanh>
+  </Song>
+  <Song>
+    <MaBaiHat>BH003</MaBaiHat>
+    <TenBaiHat>Hồng Nhan</TenBaiHat>
+    <NgheSi>Jack</NgheSi>
+    <TheLoai>Ballad</TheLoai>
+    <NgayPhatHanh>2/23/2019 12:00:00 AM</NgayPhatHanh>
+  </Song>
+  <Song>
+    <MaBaiHat>BH004</MaBaiHat>
+    <TenBaiHat>Bống Bống Bang Bang</TenBaiHat>
+    <NgheSi>365 DaBand</NgheSi>
+    <TheLoai>Pop</TheLoai>
+    <NgayPhatHanh>6/27/2016 12:00:00 AM</NgayPhatHanh>
+  </Song>
+  <Song>
+    <MaBaiHat>BH005</MaBaiHat>
+    <TenBaiHat>Lạc Trôi</TenBaiHat>
+    <NgheSi>Son Tùng M-TP</NgheSi>
+    <TheLoai>EDM</TheLoai>
+    <NgayPhatHanh>1/1/2017 12:00:00 AM</NgayPhatHanh>
+  </Song>
+</Songs>

@@ -1,0 +1,93 @@
+﻿<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index","Home")">
+        <div class="sidebar-brand-icon">
+            <img src="~/Assets/Admin/img/logotbp.png" style="width: 50px; height: 50px; object-fit: contain;">
+        </div>
+        <div class="sidebar-brand-text mx-3">Music TBP</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item @(ViewBag.isActive == "Home" ? "active" : "")">
+        <a class="nav-link" href="@Url.Action("Index", "Home")">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Trang chủ</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Quản Lý
+    </div>
+
+    <!-- Nav Item - Quản lý người dùng -->
+    <li class="nav-item @(ViewBag.isActive == "UserManagement" ? "active" : "")">
+        <a class="nav-link" href="@Url.Action("Index","UserManagement")">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Quản Lý Người Dùng</span>
+        </a>
+    </li>
+
+    <!-- Nav Item - Quản lý bài nhạc -->
+    <li class="nav-item @(ViewBag.isActive == "MusicManagement" ? "active" : "")">
+        <a class="nav-link" href="@Url.Action("Index","MusicManagement")">
+            <i class="fas fa-fw fa-music"></i>
+            <span>Quản Lý Bài Nhạc</span>
+        </a>
+    </li>
+
+    <!-- Nav Item - Quản lý danh mục nhạc -->
+    <li class="nav-item @(ViewBag.isActive == "CategoryManagement" ? "active" : "")">
+        <a class="nav-link" href="@Url.Action("Index","CategoryManagement")">
+            <i class="fas fa-fw fa-tags"></i>
+            <span>Quản Lý Danh Mục Nhạc</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Tiện ích bổ sung
+    </div>
+
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item @(ViewBag.isActive == "Artist" ? "active" : "")">
+        <a class="nav-link" href="@Url.Action("Index","Artist")">
+            <i class="fas fa-fw fa-microphone"></i>
+            <span>Nghệ Sĩ</span>
+        </a>
+    </li>
+    <!-- Nav Item - Quản lý phân quyền tài khoản -->
+    <li class="nav-item @(ViewBag.isActive == "Account" ? "active" : "")">
+        <a class="nav-link" href="@Url.Action("Index", "Account")">
+            <i class="fas fa-fw fa-user-shield"></i> <!-- Biểu tượng cho phân quyền -->
+            <span>Tài khoản</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+    <!-- Sidebar Message -->
+    <div class="sidebar-card d-none d-lg-flex">
+        <img class="sidebar-card-illustration mb-2" src="/Assets/Admin/img/undraw_rocket.svg" alt="...">
+        <p class="text-center mb-2"><strong>Music Admin</strong> giúp bạn quản lý mọi thứ một cách dễ dàng!</p>
+    </div>
+
+</ul>
+<!-- End of Sidebar -->

@@ -1,0 +1,269 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.isActive = "UserManagement";
+}
+@model List<OnlineShop.Models.Framework.User>
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Danh sách người dùng</h1>
+<p class="mb-4">
+    Danh sách này hiển thị các người dùng có sẵn. Bạn có thể sửa hoặc xóa từng người dùng trực tiếp từ bảng.
+</p>
+
+<!-- DataTables Example -->
+<!-- DataTables Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách người dùng</h6>
+        <div>
+            <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addUserModal"><i class="fas fa-plus"></i> Thêm người dùng mới</a>
+            <a href="@Url.Action("Index", "UserManagement")" class="btn btn-warning btn-sm ml-2"><i class="fas fa-sync-alt"></i> Làm mới</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label for="memberPackageFilter">Lọc theo Gói thành viên:</label>
+                <select class="form-control" id="memberPackageFilter">
+                    <option value="">Tất cả</option>
+                    <option value="VIP">VIP</option>
+                    <option value="Thường">Thường</option>
+                    <!-- Thêm các gói thành viên khác nếu cần -->
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="registrationDateFilter">Lọc theo Ngày đăng ký:</label>
+                <input type="date" class="form-control" id="registrationDateFilter">
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã thành viên</th>
+                        <th>Họ và Tên</th>
+                        <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th>Gói thành viên</th>
+                        <th>Ngày đăng ký</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.MaThanhVien</td>
+                            <td>@item.HoVaTen</td>
+                            <td>@item.SoDienThoai</td>
+                            <td>@item.Email</td>
+                            <td>@(item.GoiThanhVien.ToString() == "True" ? "VIP" : "Không")</td>
+                            <td>@(item.NgayDangKy.HasValue?item.NgayDangKy.Value.ToString("dd/MM/yyyy"):"")</td>
+                            <td>
+                                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editUserModal"><i class="fas fa-edit"></i> Sửa</a>
+                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmModal"><i class="fas fa-trash-alt"></i> Xóa</a>
+                                <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewDetailsModal"><i class="fas fa-eye"></i> Xem chi tiết</a>
+                            </td>
+                        </tr>
+                    }
+                    <!-- Thêm các hàng khác ở đây -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal for Adding New User -->
+<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white d-flex justify-content-center align-items-center">
+                <h5 class="modal-title" id="addUserModalLabel">Thêm người dùng mới</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body bg-white text-dark">
+                <form id="addUserForm">
+                    <div class="form-group">
+                        <label for="userName">Tên người dùng <span class="text-danger">*</span></label> <!-- Dấu * ở đây -->
+                        <input type="text" class="form-control" id="userName" placeholder="Nhập tên người dùng" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userPhone">Số điện thoại <span class="text-danger">*</span></label> <!-- Dấu * ở đây -->
+                        <input type="text" class="form-control" id="userPhone" placeholder="Nhập số điện thoại" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmail">Email <span class="text-danger">*</span></label> <!-- Dấu * ở đây -->
+                        <input type="email" class="form-control" id="userEmail" placeholder="Nhập email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userPassword">Mật khẩu <span class="text-danger">*</span></label> <!-- Dấu * ở đây -->
+                        <input type="password" class="form-control" id="userPassword" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userConfirmPassword">Xác nhận mật khẩu <span class="text-danger">*</span></label> <!-- Dấu * ở đây -->
+                        <input type="password" class="form-control" id="userConfirmPassword" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userMembership">Gói thành viên</label> <!-- Không cần dấu * -->
+                        <input type="text" class="form-control" id="userMembership" placeholder="Nhập gói thành viên">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer bg-success text-white">
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary">Lưu người dùng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal for Editing User -->
+<div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-white d-flex justify-content-center align-items-center">
+                <h5 class="modal-title" id="editUserModalLabel">Sửa thông tin người dùng</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body bg-white text-dark">
+                <form id="editUserForm">
+                    <div class="form-group">
+                        <label for="editUserId">Mã thành viên</label>
+                        <input type="text" class="form-control" id="editUserId" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="editUserName">Tên người dùng <span class="text-danger">*</span></label> <!-- Dấu * ở đây -->
+                        <input type="text" class="form-control" id="editUserName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editUserPhone">Số điện thoại <span class="text-danger">*</span></label> <!-- Dấu * ở đây -->
+                        <input type="text" class="form-control" id="editUserPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editUserEmail">Email <span class="text-danger">*</span></label> <!-- Dấu * ở đây -->
+                        <input type="email" class="form-control" id="editUserEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editUserPassword">Mật khẩu</label> <!-- Không cần dấu * -->
+                        <input type="password" class="form-control" id="editUserPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="editUserMembership">Gói thành viên</label> <!-- Không cần dấu * -->
+                        <input type="text" class="form-control" id="editUserMembership">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer bg-warning text-white">
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary">Lưu thay đổi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal for Deleting Confirmation -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa người dùng này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-danger">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Viewing Details -->
+<div class="modal fade" id="viewDetailsModal" tabindex="-1" role="dialog" aria-labelledby="viewDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white d-flex justify-content-center align-items-center">
+                <!-- Sử dụng justify-content-center -->
+                <h5 class="modal-title" id="viewDetailsModalLabel">Chi tiết người dùng</h5> <!-- Căn giữa tiêu đề -->
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body bg-white text-dark">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="viewUserName">Tên người dùng: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="viewUserName" value="Nguyễn Văn A" readonly>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="viewUserPhone">Số điện thoại: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="viewUserPhone" value="0123456789" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="viewUserEmail">Email: <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="viewUserEmail" value="nguyenvana@example.com" readonly>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="viewUserPassword">Mật khẩu:</label>
+                            <input type="password" class="form-control" id="viewUserPassword" value="123456" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="viewUserRegDate">Ngày đăng ký tài khoản: <span class="text-danger">*</span></label>
+                            <input type="date" class="form-control" id="viewUserRegDate" value="2024-01-01" readonly>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="viewUserMembership">Tên gói VIP:</label>
+                            <input type="text" class="form-control" id="viewUserMembership" value="Gói VIP 1" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="viewUserStartDate">Ngày bắt đầu gói:</label>
+                            <input type="date" class="form-control" id="viewUserStartDate" value="2024-01-01" readonly>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="viewUserEndDate">Ngày kết thúc gói:</label>
+                            <input type="date" class="form-control" id="viewUserEndDate" value="2025-01-01" readonly>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer bg-success text-white">
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a href="@Url.Action("ExportToXml", "UserManagement")" class="btn btn-info btn-sm">
+        <i class="fas fa-file-export"></i> Xuất file XML
+    </a>
+</div>
+
+
+
+
+
+
+

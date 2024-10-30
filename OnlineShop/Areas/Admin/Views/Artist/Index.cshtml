@@ -1,0 +1,156 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.isActive = "Artist";
+}
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Danh sách nghệ sĩ</h1>
+<p class="mb-4">
+    Danh sách này hiển thị các nghệ sĩ có sẵn. Bạn có thể sửa hoặc xóa từng nghệ sĩ trực tiếp từ bảng.
+</p>
+
+<!-- DataTables Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách nghệ sĩ</h6>
+        <div>
+            <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addArtistModal"><i class="fas fa-plus"></i> Thêm nghệ sĩ mới</a>
+            <a href="@Url.Action("Index", "Artist")" class="btn btn-warning btn-sm ml-2"><i class="fas fa-sync-alt"></i> Làm mới</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã nghệ sĩ</th>
+                        <th>Tên nghệ sĩ</th>
+                        <th>Avatar</th>
+                        <th>Giới thiệu</th>
+                        <th>Thao tác</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>NT001</td>
+                        <td>Hà Anh Tuấn</td>
+                        <td><img src="https://th.bing.com/th/id/OIP.ZHTypQbvIazzL-ZBesUAXAHaKW?rs=1&pid=ImgDetMain" alt="Avatar của Hà Anh Tuấn" width="50"></td>
+                        <td>Hà Anh Tuấn là một ca sĩ nổi tiếng với phong cách Ballad nhẹ nhàng, sâu lắng.</td>
+                        <td>
+                            <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editArtistModal"><i class="fas fa-edit"></i> Sửa</a>
+                            <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmModal"><i class="fas fa-trash-alt"></i> Xóa</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>NT002</td>
+                        <td>Karik</td>
+                        <td><img src="https://afamilycdn.com/150157425591193600/2023/8/21/k1-16925941471571973235098.jpg" alt="Avatar của Karik" width="50"></td>
+                        <td>Karik là rapper hàng đầu của Việt Nam với các ca khúc hip-hop gây nghiện.</td>
+                        <td>
+                            <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Sửa</a>
+                            <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Xóa</a>
+                        </td>
+                    </tr>
+                    <!-- Thêm các hàng khác ở đây -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Adding New Artist -->
+<div class="modal fade" id="addArtistModal" tabindex="-1" role="dialog" aria-labelledby="addArtistModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title" id="addArtistModalLabel">Thêm nghệ sĩ mới</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addArtistForm">
+                    <div class="form-group">
+                        <label for="artistName">Tên nghệ sĩ: <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="artistName" placeholder="Nhập tên nghệ sĩ" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="artistAvatar">Avatar:</label>
+                        <input type="text" class="form-control" id="artistAvatar" placeholder="Nhập liên kết ảnh đại diện">
+                    </div>
+                    <div class="form-group">
+                        <label for="artistIntro">Giới thiệu:</label>
+                        <textarea class="form-control" id="artistIntro" placeholder="Nhập giới thiệu về nghệ sĩ"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer bg-success text-white">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary">Lưu nghệ sĩ</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Editing Artist -->
+<div class="modal fade" id="editArtistModal" tabindex="-1" role="dialog" aria-labelledby="editArtistModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-white">
+                <h5 class="modal-title" id="editArtistModalLabel">Sửa nghệ sĩ</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editArtistForm">
+                    <div class="form-group">
+                        <label for="editArtistId">Mã nghệ sĩ:</label>
+                        <input type="text" class="form-control" id="editArtistId" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="editArtistName">Tên nghệ sĩ: <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="editArtistName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editArtistAvatar">Avatar:</label>
+                        <input type="text" class="form-control" id="editArtistAvatar">
+                    </div>
+                    <div class="form-group">
+                        <label for="editArtistIntro">Giới thiệu:</label>
+                        <textarea class="form-control" id="editArtistIntro"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer bg-warning text-white">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary">Lưu thay đổi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Deleting Confirmation -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa bài hát này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-danger">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>

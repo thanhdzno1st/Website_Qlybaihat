@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Users>
+  <User>
+    <MaThanhVien>TV001</MaThanhVien>
+    <HoVaTen>Lê Đại Thành</HoVaTen>
+    <SoDienThoai>0905123456</SoDienThoai>
+    <Email>thanh261220@example.com</Email>
+    <MatKhau>password123</MatKhau>
+    <GoiThanhVien>true</GoiThanhVien>
+    <NgayDangKy>1/1/2024 12:00:00 AM</NgayDangKy>
+  </User>
+  <User>
+    <MaThanhVien>TV002</MaThanhVien>
+    <HoVaTen>Nguyễn Ven Bổ</HoVaTen>
+    <SoDienThoai>0905234567</SoDienThoai>
+    <Email>venbo@example.com</Email>
+    <MatKhau>password456</MatKhau>
+    <GoiThanhVien>false</GoiThanhVien>
+    <NgayDangKy>2/15/2024 12:00:00 AM</NgayDangKy>
+  </User>
+  <User>
+    <MaThanhVien>TV003</MaThanhVien>
+    <HoVaTen>Anh Lâm Phang</HoVaTen>
+    <SoDienThoai>0905345678</SoDienThoai>
+    <Email>lamphang@example.com</Email>
+    <MatKhau>password789</MatKhau>
+    <GoiThanhVien>true</GoiThanhVien>
+    <NgayDangKy>3/20/2024 12:00:00 AM</NgayDangKy>
+  </User>
+  <User>
+    <MaThanhVien>TV004</MaThanhVien>
+    <HoVaTen>Phạm Thị D</HoVaTen>
+    <SoDienThoai>0905456789</SoDienThoai>
+    <Email>phamthid@example.com</Email>
+    <MatKhau>password012</MatKhau>
+    <GoiThanhVien>false</GoiThanhVien>
+    <NgayDangKy>4/10/2024 12:00:00 AM</NgayDangKy>
+  </User>
+  <User>
+    <MaThanhVien>TV005</MaThanhVien>
+    <HoVaTen>Đoàn Văn E</HoVaTen>
+    <SoDienThoai>0905567890</SoDienThoai>
+    <Email>doanvane@example.com</Email>
+    <MatKhau>password345</MatKhau>
+    <GoiThanhVien>true</GoiThanhVien>
+    <NgayDangKy>5/5/2024 12:00:00 AM</NgayDangKy>
+  </User>
+</Users>

@@ -1,0 +1,307 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.isActive = "MusicManagement";
+}
+@model List<OnlineShop.Models.Framework.BaiHat>
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Danh sách bài hát</h1>
+<p class="mb-4">
+    Danh sách này hiển thị các bài hát có sẵn. Bạn có thể sửa hoặc xóa từng bài hát trực tiếp từ bảng.
+</p>
+
+<!-- DataTables Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách bài hát</h6>
+        <div>
+            <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addSongModal"><i class="fas fa-plus"></i> Thêm bài hát mới</a>
+            <a href="@Url.Action("Index", "MusicManagement")" class="btn btn-warning btn-sm ml-2"><i class="fas fa-sync-alt"></i> Làm mới</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-md-2">
+                <label for="memberPackageFilter">Lọc theo thể loại:</label>
+                <select class="form-control" id="memberPackageFilter">
+                    <option value="">Tất cả</option>
+                    <option value="Ballad">Ballad</option>
+                    <option value="Hip-Hop">Hip-Hop</option>
+                    <option value="Pop">Pop</option>
+                    <option value="A&B">A&B</option>
+
+                    <!-- Thêm các gói thành viên khác nếu cần -->
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="memberPackageFilter">Lọc theo tên nghệ sĩ:</label>
+                <select class="form-control" id="memberPackageFilter">
+                    <option value="">Tất cả</option>
+                    <option value="Sơn Tùng MTP">Sơn Tùng MTP</option>
+                    <option value="Jack">Jack</option>
+                    <option value="Hà Anh Tuấn">Hà Anh Tuấn</option>
+
+                    <!-- Thêm các gói thành viên khác nếu cần -->
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="registrationDateFilter">Lọc theo Ngày phát hành:</label>
+                <input type="date" class="form-control" id="registrationDateFilter">
+            </div>
+
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã bài hát</th>
+                        <th>Tên bài hát</th>
+                        <th>Nghệ sĩ</th>
+                        <th>Thể loại</th>
+                        <th>Ngày phát hành</th>
+                        <th>Âm thanh</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.maBaiHat</td>
+                            <td>@item.tenBaiHat</td>
+                            <td>@item.ngheSi</td>
+                            <td>@item.theLoai</td>
+                            <td>@(item.ngayPhatHanh.HasValue?item.ngayPhatHanh.Value.ToString("dd/MM/yyyy"):"")</td>
+                            <td><a href="@item.lienketAmThanh" target="_blank">Nghe bài hát</a></td>
+                            <td>
+                                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editSongModal"><i class="fas fa-edit"></i> Sửa</a>
+                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteConfirmModal"><i class="fas fa-trash-alt"></i> Xóa</a>
+                                <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewDetailsModal"><i class="fas fa-eye"></i> Xem chi tiết</a>
+                            </td>
+                        </tr>
+                    }
+
+
+                    <!-- Thêm các hàng khác ở đây -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Adding New Song -->
+<div class="modal fade" id="addSongModal" tabindex="-1" role="dialog" aria-labelledby="addSongModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white d-flex justify-content-center align-items-center">
+                <h5 class="modal-title" id="addSongModalLabel">Thêm bài hát mới</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body bg-white text-dark">
+                <form id="addSongForm">
+                    <div class="form-group">
+                        <label for="songName">Tên bài hát <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="songName" placeholder="Nhập tên bài hát" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="artistName">Nghệ sĩ <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="artistName" placeholder="Nhập tên nghệ sĩ" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="genre">Thể loại <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="genre" placeholder="Nhập thể loại" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="releaseDate">Ngày phát hành <span class="text-danger">*</span></label>
+                        <input type="date" class="form-control" id="releaseDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="audioLink">Liên kết âm thanh <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="audioLink" placeholder="Nhập liên kết âm thanh" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="coverImage">Ảnh bài hát <span class="text-danger">*</span></label> <!-- Phần chọn tệp ảnh -->
+                        <input type="file" class="form-control-file" id="coverImage" accept="image/*" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lyric">Lời bài hát</label>
+                        <textarea class="form-control" id="lyric" placeholder="Nhập lời bài hát" style="height: 103px;"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer bg-success text-white">
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary">Lưu bài hát</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal for Editing Song -->
+<div class="modal fade" id="editSongModal" tabindex="-1" role="dialog" aria-labelledby="editSongModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-white d-flex justify-content-center align-items-center">
+                <h5 class="modal-title" id="editSongModalLabel">Sửa bài hát</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body bg-white text-dark">
+                <form id="editSongForm">
+                    <div class="form-group">
+                        <label for="editSongId">Mã bài hát</label>
+                        <input type="text" class="form-control" id="editSongId" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="editSongName">Tên bài hát <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="editSongName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editArtistName">Nghệ sĩ <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="editArtistName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editGenre">Thể loại <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="editGenre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editReleaseDate">Ngày phát hành <span class="text-danger">*</span></label>
+                        <input type="date" class="form-control" id="editReleaseDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editAudioLink">Liên kết âm thanh <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="editAudioLink" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editCoverImage">Ảnh bài hát <span class="text-danger">*</span></label>
+                        <input type="file" class="form-control-file" id="editCoverImage" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label for="lyric">Lời bài hát</label>
+                        <textarea class="form-control" id="lyric" style="height: 103px;"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer bg-warning text-white">
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary">Lưu thay đổi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal for Deleting Confirmation -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa bài hát này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-danger">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Viewing Details -->
+<div class="modal fade" id="viewDetailsModal" tabindex="-1" role="dialog" aria-labelledby="viewDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title" id="viewDetailsModalLabel">Chi tiết bài hát</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-5 form-group">
+                        <div class="form-group">
+                            <label for="viewSongId">Mã bài hát:</label>
+                            <input type="text" class="form-control" id="viewSongId" value="BH001" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="viewSongName">Tên bài hát: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="viewSongName" value="Tháng Tư Là Lời Nói Dối Của Em" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="viewGenre">Thể loại: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="viewGenre" value="Ballad" readonly>
+                        </div>
+                        <div class="form-group text-center">
+                            <img src="https://musiccity.edu.vn/wp-content/uploads/2020/03/sheet-nhac-thang-tu-la-loi-noi-doi-cua-em-musiccity.jpg" alt="Ảnh bài hát" class="img-fluid" style="max-height: 200px;">
+                        </div>
+                    </div>
+
+                    <div class="col-md-7 form-group">
+                        <div class="form-group">
+                            <label for="viewArtistName">Nghệ sĩ: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="viewArtistName" value="Hà Anh Tuấn" readonly>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="viewReleaseDate">Ngày phát hành:</label>
+                            <input type="text" class="form-control" id="viewReleaseDate" value="2016-04-25" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="viewDuration">Thời lượng:</label>
+                            <input type="text" class="form-control" id="viewDuration" value="3:50 phút" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="viewPlays">Lượt nghe:</label>
+                            <input type="text" class="form-control" id="viewPlays" value="2,314" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="viewAudioLink">Liên kết âm thanh: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="viewAudioLink" value="https://example.com/path/to/song1.mp3" readonly>
+                        </div>
+                    </div>
+
+                    <!-- Lời bài hát -->
+                    <div class="col-md-12 form-group">
+                        <label for="viewLyrics">Lời bài hát:</label>
+                        <textarea class="form-control" id="viewLyrics" rows="4" readonly>
+Khi ánh nắng vừa ló dạng,
+Tôi đã thấy em bên tôi,
+Với nụ cười thật tươi,
+Như cơn gió nhẹ nhàng.
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer bg-success text-white">
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a href="@Url.Action("ExportToXml", "MusicManagement")" class="btn btn-info btn-sm">
+        <i class="fas fa-file-export"></i> Xuất file XML
+    </a>
+</div>
+
+
